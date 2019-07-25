@@ -1,0 +1,16 @@
+version: '2'
+services:
+  cyberaxsystem-app:
+    image: cyberaxsystem
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://cyberaxsystem-mysql:3306/cyberaxsystem?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 6663:6663
+  cyberaxsystem-mysql:
+    extends:
+      file: mysql.yml
+      service: cyberaxsystem-mysql
