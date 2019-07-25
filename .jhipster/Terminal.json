@@ -33,7 +33,7 @@
             "ownerSide": true
         }
     ],
-    "changelogDate": "20190725082644",
+    "changelogDate": "20190725140643",
     "javadoc": "The Employee entity.",
     "entityTableName": "terminal",
     "dto": "no",

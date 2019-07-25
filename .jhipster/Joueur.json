@@ -22,7 +22,7 @@
             "relationshipName": "mises"
         }
     ],
-    "changelogDate": "20190725082639",
+    "changelogDate": "20190725140638",
     "entityTableName": "joueur",
     "dto": "no",
     "pagination": "pagination",

@@ -18,7 +18,7 @@
             "relationshipName": "mises"
         }
     ],
-    "changelogDate": "20190725082643",
+    "changelogDate": "20190725140642",
     "javadoc": "Task entity.\n@author The JHipster team.",
     "entityTableName": "list_attente",
     "dto": "no",

@@ -42,7 +42,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20190725082640",
+    "changelogDate": "20190725140639",
     "entityTableName": "mise",
     "dto": "no",
     "pagination": "pagination",

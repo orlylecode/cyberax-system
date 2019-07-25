@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span>Configs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-config" [routerLink]="['/config/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Config
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="configs?.length === 0">
+        <span>No configs found</span>
+    </div>
+    <div class="table-responsive" *ngIf="configs?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Max Mise</span></th>
+            <th><span>Max Gagnant</span></th>
+            <th><span>Url Server</span></th>
+            <th><span>Api Key</span></th>
+            <th><span>Api Pass</span></th>
+            <th><span>Montant Mise</span></th>
+            <th><span>Gains 1</span></th>
+            <th><span>Gains 2</span></th>
+            <th><span>Gains 3</span></th>
+            <th><span>Gains 4</span></th>
+            <th><span>Gains 5</span></th>
+            <th><span>Gains 6</span></th>
+            <th><span>Gains 7</span></th>
+            <th><span>Gains 8</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let config of configs ;trackBy: trackId">
+                <td><a [routerLink]="['/config', config.id, 'view' ]">{{config.id}}</a></td>
+                <td>{{config.maxMise}}</td>
+                <td>{{config.maxGagnant}}</td>
+                <td>{{config.urlServer}}</td>
+                <td>{{config.apiKey}}</td>
+                <td>{{config.apiPass}}</td>
+                <td>{{config.montantMise}}</td>
+                <td>{{config.gains1}}</td>
+                <td>{{config.gains2}}</td>
+                <td>{{config.gains3}}</td>
+                <td>{{config.gains4}}</td>
+                <td>{{config.gains5}}</td>
+                <td>{{config.gains6}}</td>
+                <td>{{config.gains7}}</td>
+                <td>{{config.gains8}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/config', config.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/config', config.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'config', { outlets: { popup: config.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

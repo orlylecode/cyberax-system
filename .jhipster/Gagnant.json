@@ -24,6 +24,10 @@
         {
             "fieldName": "datePayment",
             "fieldType": "Instant"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Double"
         }
     ],
     "relationships": [
@@ -34,7 +38,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20190725082642",
+    "changelogDate": "20190725140641",
     "entityTableName": "gagnant",
     "dto": "no",
     "pagination": "pagination",
