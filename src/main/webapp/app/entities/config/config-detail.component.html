@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="config">
+            <h2><span>Config</span> {{config.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Max Mise</span></dt>
+                <dd>
+                    <span>{{config.maxMise}}</span>
+                </dd>
+                <dt><span>Max Gagnant</span></dt>
+                <dd>
+                    <span>{{config.maxGagnant}}</span>
+                </dd>
+                <dt><span>Url Server</span></dt>
+                <dd>
+                    <span>{{config.urlServer}}</span>
+                </dd>
+                <dt><span>Api Key</span></dt>
+                <dd>
+                    <span>{{config.apiKey}}</span>
+                </dd>
+                <dt><span>Api Pass</span></dt>
+                <dd>
+                    <span>{{config.apiPass}}</span>
+                </dd>
+                <dt><span>Montant Mise</span></dt>
+                <dd>
+                    <span>{{config.montantMise}}</span>
+                </dd>
+                <dt><span>Gains 1</span></dt>
+                <dd>
+                    <span>{{config.gains1}}</span>
+                </dd>
+                <dt><span>Gains 2</span></dt>
+                <dd>
+                    <span>{{config.gains2}}</span>
+                </dd>
+                <dt><span>Gains 3</span></dt>
+                <dd>
+                    <span>{{config.gains3}}</span>
+                </dd>
+                <dt><span>Gains 4</span></dt>
+                <dd>
+                    <span>{{config.gains4}}</span>
+                </dd>
+                <dt><span>Gains 5</span></dt>
+                <dd>
+                    <span>{{config.gains5}}</span>
+                </dd>
+                <dt><span>Gains 6</span></dt>
+                <dd>
+                    <span>{{config.gains6}}</span>
+                </dd>
+                <dt><span>Gains 7</span></dt>
+                <dd>
+                    <span>{{config.gains7}}</span>
+                </dd>
+                <dt><span>Gains 8</span></dt>
+                <dd>
+                    <span>{{config.gains8}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/config', config.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

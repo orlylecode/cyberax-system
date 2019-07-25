@@ -1,0 +1,71 @@
+{
+    "name": "Config",
+    "fields": [
+        {
+            "fieldName": "maxMise",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxGagnant",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "urlServer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apiKey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apiPass",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "montantMise",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gains1",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gains2",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gains3",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gains4",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gains5",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gains6",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gains7",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gains8",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190725140644",
+    "entityTableName": "config",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

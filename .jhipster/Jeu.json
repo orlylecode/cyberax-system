@@ -40,7 +40,7 @@
             "relationshipName": "gagnants"
         }
     ],
-    "changelogDate": "20190725082641",
+    "changelogDate": "20190725140640",
     "javadoc": "not an ignored comment",
     "entityTableName": "jeu",
     "dto": "no",

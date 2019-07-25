@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-config-heading">Create or edit a Config</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_maxMise">Max Mise</label>
+                    <input type="number" class="form-control" name="maxMise" id="field_maxMise"
+                           formControlName="maxMise"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_maxGagnant">Max Gagnant</label>
+                    <input type="number" class="form-control" name="maxGagnant" id="field_maxGagnant"
+                           formControlName="maxGagnant"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_urlServer">Url Server</label>
+                    <input type="text" class="form-control" name="urlServer" id="field_urlServer"
+                           formControlName="urlServer"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_apiKey">Api Key</label>
+                    <input type="text" class="form-control" name="apiKey" id="field_apiKey"
+                           formControlName="apiKey"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_apiPass">Api Pass</label>
+                    <input type="text" class="form-control" name="apiPass" id="field_apiPass"
+                           formControlName="apiPass"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_montantMise">Montant Mise</label>
+                    <input type="number" class="form-control" name="montantMise" id="field_montantMise"
+                           formControlName="montantMise"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gains1">Gains 1</label>
+                    <input type="number" class="form-control" name="gains1" id="field_gains1"
+                           formControlName="gains1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gains2">Gains 2</label>
+                    <input type="number" class="form-control" name="gains2" id="field_gains2"
+                           formControlName="gains2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gains3">Gains 3</label>
+                    <input type="number" class="form-control" name="gains3" id="field_gains3"
+                           formControlName="gains3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gains4">Gains 4</label>
+                    <input type="number" class="form-control" name="gains4" id="field_gains4"
+                           formControlName="gains4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gains5">Gains 5</label>
+                    <input type="number" class="form-control" name="gains5" id="field_gains5"
+                           formControlName="gains5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gains6">Gains 6</label>
+                    <input type="number" class="form-control" name="gains6" id="field_gains6"
+                           formControlName="gains6"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gains7">Gains 7</label>
+                    <input type="number" class="form-control" name="gains7" id="field_gains7"
+                           formControlName="gains7"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gains8">Gains 8</label>
+                    <input type="number" class="form-control" name="gains8" id="field_gains8"
+                           formControlName="gains8"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -9,6 +9,7 @@ export interface IGagnant {
   position?: number;
   dateGain?: Moment;
   datePayment?: Moment;
+  montant?: number;
   jeu?: IJeu;
 }
 
@@ -21,6 +22,7 @@ export class Gagnant implements IGagnant {
     public position?: number,
     public dateGain?: Moment,
     public datePayment?: Moment,
+    public montant?: number,
     public jeu?: IJeu
   ) {}
 }

@@ -29,6 +29,7 @@ export class GagnantUpdateComponent implements OnInit {
     position: [],
     dateGain: [],
     datePayment: [],
+    montant: [],
     jeu: []
   });
 
@@ -63,6 +64,7 @@ export class GagnantUpdateComponent implements OnInit {
       position: gagnant.position,
       dateGain: gagnant.dateGain != null ? gagnant.dateGain.format(DATE_TIME_FORMAT) : null,
       datePayment: gagnant.datePayment != null ? gagnant.datePayment.format(DATE_TIME_FORMAT) : null,
+      montant: gagnant.montant,
       jeu: gagnant.jeu
     });
   }
@@ -92,6 +94,7 @@ export class GagnantUpdateComponent implements OnInit {
       dateGain: this.editForm.get(['dateGain']).value != null ? moment(this.editForm.get(['dateGain']).value, DATE_TIME_FORMAT) : undefined,
       datePayment:
         this.editForm.get(['datePayment']).value != null ? moment(this.editForm.get(['datePayment']).value, DATE_TIME_FORMAT) : undefined,
+      montant: this.editForm.get(['montant']).value,
       jeu: this.editForm.get(['jeu']).value
     };
   }

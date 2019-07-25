@@ -24,6 +24,7 @@
             <th jhiSortBy="position"><span>Position</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dateGain"><span>Date Gain</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="datePayment"><span>Date Payment</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montant"><span>Montant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="jeu.id"><span>Jeu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
@@ -37,6 +38,7 @@
                 <td>{{gagnant.position}}</td>
                 <td>{{gagnant.dateGain | date:'medium'}}</td>
                 <td>{{gagnant.datePayment | date:'medium'}}</td>
+                <td>{{gagnant.montant}}</td>
                 <td>
                     <div *ngIf="gagnant.jeu">
                         <a [routerLink]="['../jeu', gagnant.jeu?.id, 'view' ]" >{{gagnant.jeu?.id}}</a>

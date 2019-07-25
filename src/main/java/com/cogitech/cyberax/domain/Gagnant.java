@@ -40,6 +40,9 @@ public class Gagnant implements Serializable {
     @Column(name = "date_payment")
     private Instant datePayment;
 
+    @Column(name = "montant")
+    private Double montant;
+
     @ManyToOne
     @JsonIgnoreProperties("gagnants")
     private Jeu jeu;
@@ -131,6 +134,19 @@ public class Gagnant implements Serializable {
         this.datePayment = datePayment;
     }
 
+    public Double getMontant() {
+        return montant;
+    }
+
+    public Gagnant montant(Double montant) {
+        this.montant = montant;
+        return this;
+    }
+
+    public void setMontant(Double montant) {
+        this.montant = montant;
+    }
+
     public Jeu getJeu() {
         return jeu;
     }
@@ -171,6 +187,7 @@ public class Gagnant implements Serializable {
             ", position=" + getPosition() +
             ", dateGain='" + getDateGain() + "'" +
             ", datePayment='" + getDatePayment() + "'" +
+            ", montant=" + getMontant() +
             "}";
     }
 }

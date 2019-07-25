@@ -54,6 +54,9 @@ public class GagnantResourceIT {
     private static final Instant DEFAULT_DATE_PAYMENT = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DATE_PAYMENT = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
+    private static final Double DEFAULT_MONTANT = 1D;
+    private static final Double UPDATED_MONTANT = 2D;
+
     @Autowired
     private GagnantRepository gagnantRepository;
 
@@ -104,7 +107,8 @@ public class GagnantResourceIT {
             .telephone(DEFAULT_TELEPHONE)
             .position(DEFAULT_POSITION)
             .dateGain(DEFAULT_DATE_GAIN)
-            .datePayment(DEFAULT_DATE_PAYMENT);
+            .datePayment(DEFAULT_DATE_PAYMENT)
+            .montant(DEFAULT_MONTANT);
         return gagnant;
     }
     /**
@@ -120,7 +124,8 @@ public class GagnantResourceIT {
             .telephone(UPDATED_TELEPHONE)
             .position(UPDATED_POSITION)
             .dateGain(UPDATED_DATE_GAIN)
-            .datePayment(UPDATED_DATE_PAYMENT);
+            .datePayment(UPDATED_DATE_PAYMENT)
+            .montant(UPDATED_MONTANT);
         return gagnant;
     }
 
@@ -150,6 +155,7 @@ public class GagnantResourceIT {
         assertThat(testGagnant.getPosition()).isEqualTo(DEFAULT_POSITION);
         assertThat(testGagnant.getDateGain()).isEqualTo(DEFAULT_DATE_GAIN);
         assertThat(testGagnant.getDatePayment()).isEqualTo(DEFAULT_DATE_PAYMENT);
+        assertThat(testGagnant.getMontant()).isEqualTo(DEFAULT_MONTANT);
     }
 
     @Test
@@ -188,7 +194,8 @@ public class GagnantResourceIT {
             .andExpect(jsonPath("$.[*].telephone").value(hasItem(DEFAULT_TELEPHONE.toString())))
             .andExpect(jsonPath("$.[*].position").value(hasItem(DEFAULT_POSITION)))
             .andExpect(jsonPath("$.[*].dateGain").value(hasItem(DEFAULT_DATE_GAIN.toString())))
-            .andExpect(jsonPath("$.[*].datePayment").value(hasItem(DEFAULT_DATE_PAYMENT.toString())));
+            .andExpect(jsonPath("$.[*].datePayment").value(hasItem(DEFAULT_DATE_PAYMENT.toString())))
+            .andExpect(jsonPath("$.[*].montant").value(hasItem(DEFAULT_MONTANT.doubleValue())));
     }
     
     @Test
@@ -207,7 +214,8 @@ public class GagnantResourceIT {
             .andExpect(jsonPath("$.telephone").value(DEFAULT_TELEPHONE.toString()))
             .andExpect(jsonPath("$.position").value(DEFAULT_POSITION))
             .andExpect(jsonPath("$.dateGain").value(DEFAULT_DATE_GAIN.toString()))
-            .andExpect(jsonPath("$.datePayment").value(DEFAULT_DATE_PAYMENT.toString()));
+            .andExpect(jsonPath("$.datePayment").value(DEFAULT_DATE_PAYMENT.toString()))
+            .andExpect(jsonPath("$.montant").value(DEFAULT_MONTANT.doubleValue()));
     }
 
     @Test
@@ -236,7 +244,8 @@ public class GagnantResourceIT {
             .telephone(UPDATED_TELEPHONE)
             .position(UPDATED_POSITION)
             .dateGain(UPDATED_DATE_GAIN)
-            .datePayment(UPDATED_DATE_PAYMENT);
+            .datePayment(UPDATED_DATE_PAYMENT)
+            .montant(UPDATED_MONTANT);
 
         restGagnantMockMvc.perform(put("/api/gagnants")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -253,6 +262,7 @@ public class GagnantResourceIT {
         assertThat(testGagnant.getPosition()).isEqualTo(UPDATED_POSITION);
         assertThat(testGagnant.getDateGain()).isEqualTo(UPDATED_DATE_GAIN);
         assertThat(testGagnant.getDatePayment()).isEqualTo(UPDATED_DATE_PAYMENT);
+        assertThat(testGagnant.getMontant()).isEqualTo(UPDATED_MONTANT);
     }
 
     @Test

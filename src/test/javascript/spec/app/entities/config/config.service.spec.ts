@@ -4,41 +4,31 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import * as moment from 'moment';
-import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
-import { GagnantService } from 'app/entities/gagnant/gagnant.service';
-import { IGagnant, Gagnant } from 'app/shared/model/gagnant.model';
+import { ConfigService } from 'app/entities/config/config.service';
+import { IConfig, Config } from 'app/shared/model/config.model';
 
 describe('Service Tests', () => {
-  describe('Gagnant Service', () => {
+  describe('Config Service', () => {
     let injector: TestBed;
-    let service: GagnantService;
+    let service: ConfigService;
     let httpMock: HttpTestingController;
-    let elemDefault: IGagnant;
+    let elemDefault: IConfig;
     let expectedResult;
-    let currentDate: moment.Moment;
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [HttpClientTestingModule]
       });
       expectedResult = {};
       injector = getTestBed();
-      service = injector.get(GagnantService);
+      service = injector.get(ConfigService);
       httpMock = injector.get(HttpTestingController);
-      currentDate = moment();
 
-      elemDefault = new Gagnant(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0, currentDate, currentDate, 0);
+      elemDefault = new Config(0, 0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0, 0, 0, 0, 0, 0, 0, 0, 0);
     });
 
     describe('Service methods', () => {
       it('should find an element', async () => {
-        const returnedFromService = Object.assign(
-          {
-            dateGain: currentDate.format(DATE_TIME_FORMAT),
-            datePayment: currentDate.format(DATE_TIME_FORMAT)
-          },
-          elemDefault
-        );
+        const returnedFromService = Object.assign({}, elemDefault);
         service
           .find(123)
           .pipe(take(1))
@@ -49,24 +39,16 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: elemDefault });
       });
 
-      it('should create a Gagnant', async () => {
+      it('should create a Config', async () => {
         const returnedFromService = Object.assign(
           {
-            id: 0,
-            dateGain: currentDate.format(DATE_TIME_FORMAT),
-            datePayment: currentDate.format(DATE_TIME_FORMAT)
+            id: 0
           },
           elemDefault
         );
-        const expected = Object.assign(
-          {
-            dateGain: currentDate,
-            datePayment: currentDate
-          },
-          returnedFromService
-        );
+        const expected = Object.assign({}, returnedFromService);
         service
-          .create(new Gagnant(null))
+          .create(new Config(null))
           .pipe(take(1))
           .subscribe(resp => (expectedResult = resp));
         const req = httpMock.expectOne({ method: 'POST' });
@@ -74,27 +56,28 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should update a Gagnant', async () => {
+      it('should update a Config', async () => {
         const returnedFromService = Object.assign(
           {
-            nom: 'BBBBBB',
-            prenom: 'BBBBBB',
-            telephone: 'BBBBBB',
-            position: 1,
-            dateGain: currentDate.format(DATE_TIME_FORMAT),
-            datePayment: currentDate.format(DATE_TIME_FORMAT),
-            montant: 1
+            maxMise: 1,
+            maxGagnant: 1,
+            urlServer: 'BBBBBB',
+            apiKey: 'BBBBBB',
+            apiPass: 'BBBBBB',
+            montantMise: 1,
+            gains1: 1,
+            gains2: 1,
+            gains3: 1,
+            gains4: 1,
+            gains5: 1,
+            gains6: 1,
+            gains7: 1,
+            gains8: 1
           },
           elemDefault
         );
 
-        const expected = Object.assign(
-          {
-            dateGain: currentDate,
-            datePayment: currentDate
-          },
-          returnedFromService
-        );
+        const expected = Object.assign({}, returnedFromService);
         service
           .update(expected)
           .pipe(take(1))
@@ -104,26 +87,27 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should return a list of Gagnant', async () => {
+      it('should return a list of Config', async () => {
         const returnedFromService = Object.assign(
           {
-            nom: 'BBBBBB',
-            prenom: 'BBBBBB',
-            telephone: 'BBBBBB',
-            position: 1,
-            dateGain: currentDate.format(DATE_TIME_FORMAT),
-            datePayment: currentDate.format(DATE_TIME_FORMAT),
-            montant: 1
+            maxMise: 1,
+            maxGagnant: 1,
+            urlServer: 'BBBBBB',
+            apiKey: 'BBBBBB',
+            apiPass: 'BBBBBB',
+            montantMise: 1,
+            gains1: 1,
+            gains2: 1,
+            gains3: 1,
+            gains4: 1,
+            gains5: 1,
+            gains6: 1,
+            gains7: 1,
+            gains8: 1
           },
           elemDefault
         );
-        const expected = Object.assign(
-          {
-            dateGain: currentDate,
-            datePayment: currentDate
-          },
-          returnedFromService
-        );
+        const expected = Object.assign({}, returnedFromService);
         service
           .query(expected)
           .pipe(
@@ -137,7 +121,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toContainEqual(expected);
       });
 
-      it('should delete a Gagnant', async () => {
+      it('should delete a Config', async () => {
         const rxPromise = service.delete(123).subscribe(resp => (expectedResult = resp.ok));
 
         const req = httpMock.expectOne({ method: 'DELETE' });

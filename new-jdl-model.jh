@@ -30,6 +30,7 @@ entity Gagnant {
         position Integer,
         dateGain Instant ,
         datePayment Instant
+        montant Double
 }
 
 /**
@@ -54,6 +55,24 @@ entity Terminal {
     message String 
 }
 
+entity Config {
+	maxMise Integer,
+    maxGagnant Integer ,
+    urlServer String ,
+    apiKey String,
+    apiPass String,
+    
+    montantMise Double,
+    gains1 Double ,
+    gains2 Double ,
+    gains3 Double ,
+    gains4 Double ,
+    gains5 Double ,
+    gains6 Double ,
+    gains7 Double ,
+    gains8 Double ,
+
+}
 // defining multiple OneToMany relationships with comments
 relationship OneToMany {
 	// Employee{job} to Job,
